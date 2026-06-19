@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "quantum-circuitos-python"
+version = "0.1.0"
+description = "Proyecto didactico de circuitos de computacion cuantica con Python."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+  { name = "Tu Nombre" }
+]
+dependencies = [
+  "numpy>=1.24",
+  "matplotlib>=3.7"
+]
+
+[project.optional-dependencies]
+dev = [
+  "build>=1.2",
+  "ipykernel>=6.29",
+  "nbclient>=0.10",
+  "nbformat>=5.10",
+  "pytest>=7.4",
+  "ruff>=0.5"
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
