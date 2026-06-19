@@ -1,5 +1,3 @@
-"""Ejecuta notebooks para validar que el material tutorial no se rompa."""
-
 from __future__ import annotations
 
 import argparse

@@ -1,5 +1,3 @@
-"""Simulador didactico de circuitos cuanticos basado en vectores de estado."""
-
 from __future__ import annotations
 
 from dataclasses import dataclass, field
@@ -16,11 +14,7 @@ def _basis_label(index: int, qubits: int) -> str:
 
 @dataclass
 class QuantumCircuit:
-    """Circuito cuantico pequeno para aprendizaje.
 
-    La convencion usada es big-endian: el qubit 0 corresponde al bit mas
-    significativo en etiquetas como ``|010>``.
-    """
 
     qubits: int
     state: np.ndarray | None = None

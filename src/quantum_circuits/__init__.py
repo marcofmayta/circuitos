@@ -1,5 +1,3 @@
-"""Herramientas didacticas para circuitos de computacion cuantica."""
-
 from quantum_circuits.algorithms import (
     bell_state,
     deutsch_jozsa,

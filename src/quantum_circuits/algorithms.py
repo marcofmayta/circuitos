@@ -1,4 +1,3 @@
-"""Circuitos cuanticos de referencia."""
 
 from __future__ import annotations
 
@@ -8,7 +7,6 @@ from quantum_circuits.circuit import QuantumCircuit
 
 
 def superposition(qubits: int = 1) -> QuantumCircuit:
-    """Crea una superposicion uniforme sobre todos los qubits."""
     circuit = QuantumCircuit(qubits)
     for qubit in range(qubits):
         circuit.h(qubit)
@@ -16,17 +14,10 @@ def superposition(qubits: int = 1) -> QuantumCircuit:
 
 
 def bell_state() -> QuantumCircuit:
-    """Prepara el estado entrelazado (|00> + |11>) / sqrt(2)."""
     return QuantumCircuit(2).h(0).cnot(0, 1)
 
 
 def teleportation(alpha: complex = 1, beta: complex = 0) -> QuantumCircuit:
-    """Construye la parte unitaria del protocolo de teleportacion cuantica.
-
-    El qubit 0 contiene el estado a teleportar, y los qubits 1 y 2 forman el
-    par de Bell compartido. La medicion y correccion clasica se estudian por
-    separado porque son probabilisticas.
-    """
     initial = np.zeros(8, dtype=complex)
     initial[0] = alpha
     initial[4] = beta
@@ -37,10 +28,6 @@ def teleportation(alpha: complex = 1, beta: complex = 0) -> QuantumCircuit:
 
 
 def deutsch_jozsa(kind: str = "balanced") -> QuantumCircuit:
-    """Circuito Deutsch-Jozsa para una funcion de 1 bit.
-
-    ``kind="constant"`` usa f(x)=0. ``kind="balanced"`` usa f(x)=x.
-    """
     if kind not in {"constant", "balanced"}:
         raise ValueError("kind debe ser 'constant' o 'balanced'.")
 
@@ -54,7 +41,6 @@ def deutsch_jozsa(kind: str = "balanced") -> QuantumCircuit:
 
 
 def grover_2qubits(marked: str = "11") -> QuantumCircuit:
-    """Grover sobre 2 qubits con un estado marcado."""
     if len(marked) != 2 or any(bit not in "01" for bit in marked):
         raise ValueError("marked debe ser una cadena binaria de 2 bits, por ejemplo '11'.")
 
@@ -71,7 +57,6 @@ def grover_2qubits(marked: str = "11") -> QuantumCircuit:
 
 
 def qft(qubits: int, basis_state: int = 1) -> QuantumCircuit:
-    """Transformada Cuantica de Fourier sobre un estado base."""
     if not 0 <= basis_state < 2**qubits:
         raise ValueError("basis_state fuera de rango.")
 

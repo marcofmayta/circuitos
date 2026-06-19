@@ -1,5 +1,3 @@
-"""Utilidades de visualizacion para resultados de circuitos."""
-
 from __future__ import annotations
 
 from pathlib import Path
@@ -12,7 +10,6 @@ def plot_probabilities(
     title: str = "Distribucion de probabilidades",
     output: str | Path | None = None,
 ) -> None:
-    """Dibuja un histograma de probabilidades."""
     labels = list(probabilities)
     values = [probabilities[label] for label in labels]
 

@@ -1,12 +1,10 @@
-"""Matrices de compuertas cuanticas comunes."""
-
 from __future__ import annotations
 
 import numpy as np
 
 ComplexMatrix = np.ndarray
 
-I: ComplexMatrix = np.array([[1, 0], [0, 1]], dtype=complex)
+IDENTITY: ComplexMatrix = np.array([[1, 0], [0, 1]], dtype=complex)
 X: ComplexMatrix = np.array([[0, 1], [1, 0]], dtype=complex)
 Y: ComplexMatrix = np.array([[0, -1j], [1j, 0]], dtype=complex)
 Z: ComplexMatrix = np.array([[1, 0], [0, -1]], dtype=complex)
@@ -16,7 +14,6 @@ T: ComplexMatrix = np.array([[1, 0], [0, np.exp(1j * np.pi / 4)]], dtype=complex
 
 
 def rx(theta: float) -> ComplexMatrix:
-    """Rotacion alrededor del eje X."""
     return np.array(
         [
             [np.cos(theta / 2), -1j * np.sin(theta / 2)],
@@ -27,7 +24,6 @@ def rx(theta: float) -> ComplexMatrix:
 
 
 def ry(theta: float) -> ComplexMatrix:
-    """Rotacion alrededor del eje Y."""
     return np.array(
         [
             [np.cos(theta / 2), -np.sin(theta / 2)],
@@ -38,7 +34,6 @@ def ry(theta: float) -> ComplexMatrix:
 
 
 def rz(theta: float) -> ComplexMatrix:
-    """Rotacion alrededor del eje Z."""
     return np.array(
         [
             [np.exp(-1j * theta / 2), 0],
@@ -49,6 +44,4 @@ def rz(theta: float) -> ComplexMatrix:
 
 
 def phase(theta: float) -> ComplexMatrix:
-    """Compuerta de fase P(theta)."""
     return np.array([[1, 0], [0, np.exp(1j * theta)]], dtype=complex)
-
